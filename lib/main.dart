@@ -161,6 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
         systemNavigationBarDividerColor: Theme.of(context).primaryColorLight,
       ),
     );
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return Scaffold(
       body: Stack(
@@ -215,6 +216,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(top: 160),
+                      child: Center(
+                        child: SvgPicture.asset(
+                          'assets/svg/calendar.svg',
+                          color: Theme.of(context)
+                              .primaryColorDark
+                              .withOpacity(.3),
+                          width: 86,
+                        ),
+                      ),
+                    ),
                     for (var task in _tasks)
                       GestureDetector(
                         onTap: () {
