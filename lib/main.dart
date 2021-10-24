@@ -217,16 +217,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.only(top: 160),
-                      child: Center(
-                        child: SvgPicture.asset(
-                          'assets/svg/calendar.svg',
-                          color: Theme.of(context)
-                              .primaryColorDark
-                              .withOpacity(.3),
-                          width: 86,
-                        ),
-                      ),
+                      child: _tasks.isEmpty
+                          ? Container(
+                              margin: const EdgeInsets.only(top: 160),
+                              child: Center(
+                                child: SvgPicture.asset(
+                                  'assets/svg/calendar.svg',
+                                  color: Theme.of(context)
+                                      .primaryColorDark
+                                      .withOpacity(.3),
+                                  width: 86,
+                                ),
+                              ),
+                            )
+                          : null,
                     ),
                     for (var task in _tasks)
                       GestureDetector(
