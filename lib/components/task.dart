@@ -94,7 +94,7 @@ class _TaskState extends State<Task> {
           child: TextButton(
             onPressed: () {
               var _datepickerController = DatepickerController(
-                date: DateTime.now(),
+                date: _task.datetime,
               );
 
               _datepickerController.addListener(() {

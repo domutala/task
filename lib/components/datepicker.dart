@@ -110,9 +110,13 @@ class _DatepickerState extends State<Datepicker> {
 
   Widget wDay(int day) {
     DateTime date = DateTime(_currentYear, _currentMonth, day);
+    DateTime choice = widget.datepickerController.date;
     DateTime now = DateTime.now();
     bool isNow =
         now.day == date.day && now.month == date.month && now.year == date.year;
+    bool isChoice = choice.day == date.day &&
+        choice.month == date.month &&
+        choice.year == date.year;
 
     return TextButton(
       onPressed: () {
@@ -132,10 +136,34 @@ class _DatepickerState extends State<Datepicker> {
             Theme.of(context).primaryColorDark.withOpacity(.3)),
         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
         foregroundColor: MaterialStateProperty.all(isNow
-            ? Theme.of(context).primaryColorDark
+            ? Theme.of(context).primaryColor
             : Theme.of(context).primaryColorDark),
       ),
-      child: Text('$day'),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Center(
+            child: Text('$day'),
+          ),
+          Positioned(
+            bottom: 3,
+            right: 0,
+            left: 0,
+            child: Center(
+              child: isChoice
+                  ? Container(
+                      height: 10,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    )
+                  : null,
+            ),
+          )
+        ],
+      ),
     );
   }
 

@@ -36,9 +36,9 @@ class StoreTask {
 
     tasks.sort((a, b) {
       return a.datetime.isAfter(b.datetime)
-          ? 1
+          ? -1
           : a.datetime.isBefore(b.datetime)
-              ? -1
+              ? 1
               : 0;
     });
 
