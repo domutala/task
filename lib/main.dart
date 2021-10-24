@@ -12,11 +12,6 @@ import 'package:task/utils/colors.dart';
 import 'package:task/utils/showModalBottom.dart';
 import 'package:intl/intl.dart' as intl;
 
-// #3B3B3B
-// #000000
-
-// #966DE8
-// #212168
 void main() async {
   runApp(const MyApp());
 }
@@ -28,18 +23,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: Colored.theme,
       darkTheme: Colored.themeDark,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
